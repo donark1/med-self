@@ -1,3 +1,4 @@
+
 insert into "users"
   ( "FirstName", "LastName", "Email", "Password", "Gender", "DateOfBirth", "City", "ZipCode", "Height(inches)", "Weight(lbs)")
   values
