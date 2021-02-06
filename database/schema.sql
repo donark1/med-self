@@ -72,8 +72,6 @@ CREATE TABLE "userAccess" (
 
 
 
-
-
 ALTER TABLE "symptoms" ADD CONSTRAINT "symptoms_fk0" FOREIGN KEY ("bodyPartId") REFERENCES "bodyParts"("bodyPartId");
 ALTER TABLE "symptoms" ADD CONSTRAINT "symptoms_fk1" FOREIGN KEY ("userId") REFERENCES "users"("userId");
 
