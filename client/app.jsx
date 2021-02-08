@@ -11,7 +11,7 @@ export default class App extends React.Component {
       <div>
           <div className="text-center my-3">
             <Link className="px-4" to="/">Home</Link>
-            <Link className="px-4" to="/bodyparts">Body Parts</Link>
+            <Link className="px-4" to="/bodyParts">Body Parts</Link>
             <Link className="px-4" to="/symptoms">Symptoms</Link>
             <Link className="px-4" to="/results">Results</Link>
           </div>

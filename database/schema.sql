@@ -28,10 +28,10 @@ create schema "med-self";
 
 
 
-CREATE TABLE "bodyParts" (
+CREATE TABLE "bodyparts" (
 	"bodyPartId" serial NOT NULL,
 	"name" TEXT NOT NULL,
-	CONSTRAINT "bodyParts_pk" PRIMARY KEY ("bodyPartId")
+	CONSTRAINT "bodyparts_pk" PRIMARY KEY ("bodyPartId")
 ) WITH (
   OIDS=FALSE
 );
@@ -72,7 +72,7 @@ CREATE TABLE "userAccess" (
 
 
 
-ALTER TABLE "symptoms" ADD CONSTRAINT "symptoms_fk0" FOREIGN KEY ("bodyPartId") REFERENCES "bodyParts"("bodyPartId");
+ALTER TABLE "symptoms" ADD CONSTRAINT "symptoms_fk0" FOREIGN KEY ("bodyPartId") REFERENCES "bodyparts"("bodyPartId");
 ALTER TABLE "symptoms" ADD CONSTRAINT "symptoms_fk1" FOREIGN KEY ("userId") REFERENCES "users"("userId");
 
 ALTER TABLE "results" ADD CONSTRAINT "results_fk1" FOREIGN KEY ("symptomId") REFERENCES "symptoms"("symptomId");
