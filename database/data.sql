@@ -5,7 +5,7 @@ insert into "users"
     ('Joe', 'Schmoe', 'jschmoe@example.com', 'abcde', 'Male', '1/1/1940', 'Irvine', '92618', '70', '210'),
     ('Jane', 'Doe', 'jdoe@example.com', '12345', 'Female', '6/30/1970', 'Newport Beach','92660', '55', '110');
 
-insert into "bodyParts"
+insert into "bodyparts"
   ("name")
   values
     ('Head/Neck'),
