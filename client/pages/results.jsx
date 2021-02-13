@@ -38,6 +38,7 @@ export default class results extends React.Component {
 
     return (
       <div className="container">
+
         <h1 className="text-center">Results Page</h1>
 
         <ul className="list-group list-group-flush">
