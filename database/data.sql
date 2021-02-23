@@ -1,6 +1,6 @@
 
 insert into "users"
-  ( "FirstName", "LastName", "Email", "Password", "Gender", "DateOfBirth", "City", "ZipCode", "Height(inches)", "Weight(lbs)")
+  ( "firstName", "lastName", "email", "password", "gender", "dateOfBirth", "city", "zipCode", "height", "weight")
   values
     ('Joe', 'Schmoe', 'jschmoe@example.com', 'abcde', 'Male', '1/1/1940', 'Irvine', '92618', '70', '210'),
     ('Jane', 'Doe', 'jdoe@example.com', '12345', 'Female', '6/30/1970', 'Newport Beach','92660', '55', '110');
