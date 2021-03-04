@@ -5,6 +5,7 @@ import Createprofile from './pages/createprofile';
 import Bodyparts from './pages/bodyparts';
 import Symptoms from './pages/symptoms';
 import Results from './pages/results';
+import Login from './pages/login';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ export default class App extends React.Component {
       users: []
     };
     this.createProfile = this.createProfile.bind(this);
+    this.login = this.login.bind(this);
   }
 
   componentDidMount() {
@@ -43,6 +45,21 @@ export default class App extends React.Component {
       .catch(error => console.error(error));
   }
 
+  login(loginUser) {
+    fetch('/api/login', {
+      method: 'POST',
+      body: JSON.stringify(loginUser),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(res => res.json())
+      .then(userLogin => {
+        this.setState({ users: userLogin });
+      })
+      .catch(error => console.error(error));
+  }
+
   render() {
     return (
       <div>
@@ -51,7 +68,10 @@ export default class App extends React.Component {
           <Home />
         </Route>
         <Route path="/createprofile">
-          <Createprofile onSubmit={this.createProfile} />
+          <Createprofile createProfile={this.createProfile} />
+        </Route>
+        <Route path="/login">
+          <Login login={this.login} />
         </Route>
         <Route path="/bodyparts">
           <Bodyparts />

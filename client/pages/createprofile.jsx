@@ -30,7 +30,7 @@ export default class Createprofile extends React.Component {
     const newUser = {
       user: this.state
     };
-    this.props.onSubmit(newUser);
+    this.props.createProfile(newUser);
   }
 
   render() {
@@ -39,28 +39,28 @@ export default class Createprofile extends React.Component {
     <div>
       <h1 className="text-center mt-4 profiletitle">Create Your Profile</h1>
     </div>
-    <form onSubmit= {this.handleSubmit}>
+    <form onSubmit={this.handleSubmit}>
     <div className="row">
       <div className="col">
-              <h4 className="input">First Name:</h4> <input type="text" id="firstName" name="firstName" onChange={this.handleChange} required />
-              <h4 className="input">Last Name:</h4> <input type="text" id="lastName" name="lastName" onChange={this.handleChange} required />
-              <h4 className="input">Email:</h4> <input type="text" id="email" name="email" onChange={this.handleChange} required />
-              <h4 className="input">Password:</h4> <input type="text" id="password" name="password" onChange={this.handleChange} required />
-              <h4 className="input">Gender:</h4> <input type="text" placeholder="M/F" id="gender" name="gender" onChange={this.handleChange} required />
+        <h4 className="input">First Name:</h4> <input type="text" id="firstName" name="firstName" onChange={this.handleChange} required />
+        <h4 className="input">Last Name:</h4> <input type="text" id="lastName" name="lastName" onChange={this.handleChange} required />
+        <h4 className="input">Email:</h4> <input type="text" id="email" name="email" onChange={this.handleChange} required />
+        <h4 className="input">Password:</h4> <input type="text" id="password" name="password" onChange={this.handleChange} required />
+        <h4 className="input">Gender:</h4> <input type="text" placeholder="M/F" id="gender" name="gender" onChange={this.handleChange} required />
       </div>
       <div className="col">
-          <img src="/images/body-image_blue.jpg" alt="Body Image" className="bodyImageProfile" />
+        <img src="/images/body-image_blue.jpg" alt="Body Image" className="bodyImageProfile" />
       </div>
       <div className="col">
-              <h4 className="input">Date Of Birth:</h4> <input type="date" placeholder="mm/dd/yyyy" id="dateOfBirth" name="dateOfBirth" onChange={this.handleChange} required />
-              <h4 className="input">City:</h4> <input type="text" id="city" name="city" onChange={this.handleChange} required />
-              <h4 className="input">Zip Code:</h4> <input type="number" id="zipCode" name="zipCode" onChange={this.handleChange} required />
-              <h4 className="input">Height:</h4> <input type="number" placeholder="inches" id="height" name="height" onChange={this.handleChange} required />
-              <h4 className="input">Weight:</h4> <input type="number" placeholder="lbs" id="weight" name="weight" onChange={this.handleChange} required /><br></br>
+        <h4 className="input">Date Of Birth:</h4> <input type="date" placeholder="mm/dd/yyyy" id="dateOfBirth" name="dateOfBirth" onChange={this.handleChange} required />
+        <h4 className="input">City:</h4> <input type="text" id="city" name="city" onChange={this.handleChange} required />
+        <h4 className="input">Zip Code:</h4> <input type="number" id="zipCode" name="zipCode" onChange={this.handleChange} required />
+        <h4 className="input">Height:</h4> <input type="number" placeholder="inches" id="height" name="height" onChange={this.handleChange} required />
+        <h4 className="input">Weight:</h4> <input type="number" placeholder="lbs" id="weight" name="weight" onChange={this.handleChange} required /><br></br>
       </div>
     </div>
     <div>
-      <button type="submit" className="createbutton">CREATE</button>
+        <button type="submit" className="createbutton">CREATE</button>
     </div>
     </form>
     </>
