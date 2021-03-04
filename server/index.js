@@ -58,6 +58,7 @@ app.get('/api/users', (req, res) => {
     });
 });
 
+// Create profile
 app.post('/api/users', (req, res, next) => {
   const { firstName, lastName, email, password, gender, dateOfBirth, city, zipCode, height, weight } = req.body.user;
 
@@ -79,6 +80,47 @@ app.post('/api/users', (req, res, next) => {
     .then(result => {
       const info = result.rows[0];
       res.status(201).send(info);
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({
+        error: 'An unexpected error occurred.'
+      });
+    });
+});
+
+// Login
+
+app.post('/api/login', function (req, res, next) {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(400).json({
+      error: 'Email and Password are required.'
+    });
+  }
+
+  const param = [email, password];
+
+  const sql = `
+        select "email", "password"
+          from "users"
+          where "email" = ($1)
+          and "password" = ($2)
+      `;
+
+  db.query(sql, param)
+    .then(result => {
+      const user = result.rows;
+      if (!user.length) {
+        return res.status(400).json({
+          error: 'Invalid login.'
+        });
+      } else {
+        return res.status(200).json({
+          message: 'You have entered a valid Email and Password.'
+        });
+      }
     })
     .catch(err => {
       console.error(err);
