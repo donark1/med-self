@@ -4,8 +4,8 @@ export default class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: 'don_ark@sbcglobal.net',
-      password: 'abc123'
+      email: 'demouser@abc.com',
+      password: 'demouser'
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -50,6 +50,5 @@ export default class Login extends React.Component {
         </form>
       </>
     );
-
   }
 }

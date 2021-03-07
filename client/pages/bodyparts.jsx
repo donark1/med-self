@@ -37,10 +37,9 @@ export default class Bodyparts extends React.Component {
     }
 
     return (
+    <>
       <div className="container">
-
-        <h1 className="text-center">Bodyparts Page</h1>
-
+        <h1 className="text-center">Welcome </h1>
         <ul className="list-group list-group-flush">
           {
             bodyparts.length
@@ -49,6 +48,7 @@ export default class Bodyparts extends React.Component {
           }
         </ul>
       </div>
+    </>
     );
   }
 }
