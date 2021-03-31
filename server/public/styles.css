@@ -47,8 +47,16 @@ h1 {
   color: white;
 }
 
+.ul-list-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 ul {
   list-style-type: none;
+  color: rgb(48, 170, 234);
+  font-size: 15px;
 }
 
 .logo {
@@ -80,6 +88,21 @@ p {
   text-align: center;
   color: white;
   font-size: 20px;
+}
+
+.disclaimer {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(48, 170, 234);
+  width: 60%;
+  margin-top: 2%;
+  border-radius: 20%;
+  padding: 5px;
+}
+
+.p3 {
+  font-size: 12px;
 }
 
 .profile-button,
@@ -169,8 +192,73 @@ button:focus {
   width: 40%;
 }
 
-.task-input-width {
+.bodyparts-menu {
+  display: block;
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 5%;
+}
+
+.bodyparts-list {
   width: 360px;
+}
+
+.bodyPartsBodyImage {
+  display: block;
+  margin-left: 40%;
+  margin-right: auto;
+  width: 20%;
+}
+
+.bodypart-submit {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(48, 170, 234);
+  color: white;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border-color: white;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.symptoms-menu,
+.diagnosis-menu {
+  display: block;
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 5%;
+}
+
+.symptoms-list,
+.diagnosis-list {
+  width: 360px;
+}
+
+.bodyPartsImage {
+  display: block;
+  margin-left: 40%;
+  margin-right: auto;
+  width: 20%;
+}
+
+.symptom-submit,
+.diagnosis-submit {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(48, 170, 234);
+  color: white;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border-color: white;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 5px;
 }
 
 .login-input {

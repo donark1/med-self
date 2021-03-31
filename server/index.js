@@ -31,8 +31,8 @@ app.get('/api/symptoms', (req, res) => {
   `;
 
   db.query(sql)
-    .then(result1 => {
-      res.json(result1.rows);
+    .then(result => {
+      res.json(result.rows);
     });
 });
 
@@ -42,8 +42,8 @@ app.get('/api/results', (req, res) => {
   `;
 
   db.query(sql)
-    .then(result2 => {
-      res.json(result2.rows);
+    .then(result => {
+      res.json(result.rows);
     });
 });
 
@@ -53,8 +53,8 @@ app.get('/api/users', (req, res) => {
   `;
 
   db.query(sql)
-    .then(result3 => {
-      res.json(result3.rows);
+    .then(result => {
+      res.json(result.rows);
     });
 });
 
@@ -127,6 +127,181 @@ app.post('/api/login', function (req, res, next) {
       res.status(500).json({
         error: 'An unexpected error occurred.'
       });
+    });
+});
+
+// symptoms from head/neck
+app.post('/api/symptoms/headneck/', (req, res, next) => {
+  const { params } = req.body;
+  const sql = `
+    select "symptomId",
+           "bodyPartId",
+           "symptomname"
+          from "symptoms"
+          where "bodyPartId" = 1
+  `;
+
+  db.query(sql, params)
+    .then(result => {
+      res.json(result.rows);
+    });
+});
+
+// symptoms from shoulders/arms/hands
+app.post('/api/symptoms/shouldersarmshands', (req, res, next) => {
+  const { params } = req.body;
+  const sql = `
+    select "symptomId",
+           "bodyPartId",
+           "symptomname"
+          from "symptoms"
+          where "bodyPartId" = 2
+  `;
+
+  db.query(sql, params)
+    .then(result => {
+      res.json(result.rows);
+    });
+});
+
+// symptoms from chest
+app.post('/api/symptoms/chest', (req, res, next) => {
+  const { params } = req.body;
+  const sql = `
+    select "symptomId",
+           "bodyPartId",
+           "symptomname"
+          from "symptoms"
+          where "bodyPartId" = 3
+  `;
+
+  db.query(sql, params)
+    .then(result => {
+      res.json(result.rows);
+    });
+});
+
+// symptoms from abdomen
+app.post('/api/symptoms/abdomen', (req, res, next) => {
+  const { params } = req.body;
+  const sql = `
+    select "symptomId",
+           "bodyPartId",
+           "symptomname"
+          from "symptoms"
+          where "bodyPartId" = 4
+  `;
+
+  db.query(sql, params)
+    .then(result => {
+      res.json(result.rows);
+    });
+});
+
+// symptoms from legs/feet
+app.post('/api/symptoms/legsfeet', (req, res, next) => {
+  const { params } = req.body;
+  const sql = `
+    select "symptomId",
+           "bodyPartId",
+           "symptomname"
+          from "symptoms"
+          where "bodyPartId" = 5
+  `;
+
+  db.query(sql, params)
+    .then(result => {
+      res.json(result.rows);
+    });
+});
+
+// diagnosis from head/neck
+app.post('/api/diagnosis/headneckdiagnosis', (req, res, next) => {
+  const { symptomId } = req.body;
+  const sql = `
+    select "diagnosisId",
+           "symptomId",
+           "diagnosisname"
+          from "diagnosis"
+          where "symptomId" = ($1)
+  `;
+
+  const params = [symptomId];
+  db.query(sql, params)
+    .then(result => {
+      res.json(result.rows);
+    });
+});
+
+// diagnosis shoulders/arms/hands
+app.post('/api/diagnosis/shouldersarmshandsdiagnosis', (req, res, next) => {
+  const { symptomId } = req.body;
+  const sql = `
+    select "diagnosisId",
+           "symptomId",
+           "diagnosisname"
+          from "diagnosis"
+          where "symptomId" = ($1)
+  `;
+
+  const params = [symptomId];
+  db.query(sql, params)
+    .then(result => {
+      res.json(result.rows);
+    });
+});
+
+// diagnosis chest
+app.post('/api/diagnosis/chestdiagnosis', (req, res, next) => {
+  const { symptomId } = req.body;
+  const sql = `
+    select "diagnosisId",
+           "symptomId",
+           "diagnosisname"
+          from diagnosis
+          where "symptomId" = ($1)
+  `;
+
+  const params = [symptomId];
+  db.query(sql, params)
+    .then(result => {
+      res.json(result.rows);
+    });
+});
+
+// diagnosis abdomen
+app.post('/api/diagnosis/abdomendiagnosis', (req, res, next) => {
+  const { symptomId } = req.body;
+  const sql = `
+    select "diagnosisId",
+           "symptomId",
+           "diagnosisname"
+          from diagnosis
+          where "symptomId" = ($1)
+  `;
+
+  const params = [symptomId];
+  db.query(sql, params)
+    .then(result => {
+      res.json(result.rows);
+    });
+});
+
+// diagnosis legs/feet
+app.post('/api/diagnosis/legsfeetdiagnosis', (req, res, next) => {
+  const { symptomId } = req.body;
+  const sql = `
+    select "diagnosisId",
+           "symptomId",
+           "diagnosisname"
+          from diagnosis
+          where "symptomId" = ($1)
+  `;
+
+  const params = [symptomId];
+  db.query(sql, params)
+    .then(result => {
+      res.json(result.rows);
     });
 });
 

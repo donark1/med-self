@@ -1,24 +1,33 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-function BodypartsItem({ bodyparts }) {
-  const { name } = bodyparts;
+const bodypartvalue = [
+  'headneck',
+  'shouldersarmshands',
+  'chest',
+  'abdomen',
+  'legsfeet'
+];
 
+function BodypartsItem({ bodyparts, indexValue }) {
+  const { bodypartname } = bodyparts;
   return (
-    <li className="list-group-item">
-      <div className="row">
-        <div className="col-12">{name}</div>
-      </div>
-    </li>
+    <option value={bodypartvalue[indexValue]} className="list-group-item">
+        {bodypartname}
+    </option>
+
   );
 }
 
-export default class Bodyparts extends React.Component {
+class Bodyparts extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      bodyparts: null
+      bodyparts: null,
+      routeString: ''
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -27,6 +36,15 @@ export default class Bodyparts extends React.Component {
       .then(bodyparts => {
         this.setState({ bodyparts });
       });
+  }
+
+  handleChange(event) {
+    this.setState({ routeString: event.target.value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.history.push(this.state.routeString);
   }
 
   render() {
@@ -39,16 +57,30 @@ export default class Bodyparts extends React.Component {
     return (
     <>
       <div className="container">
-        <h1 className="text-center">Welcome </h1>
-        <ul className="list-group list-group-flush">
-          {
-            bodyparts.length
-              ? bodyparts.map(bodyparts => <BodypartsItem key={bodyparts.bodyPartId} bodyparts={bodyparts} />)
-              : <li className="list-group-item">No Body Parts specified</li>
-          }
-        </ul>
+          <h1 className="text-center">Welcome User. </h1>
+          <h1 className="text-center"> Please select area of concern: </h1>
+        <form onSubmit={this.handleSubmit}>
+          <div className="bodyparts-menu">
+            <select onChange={this.handleChange} className="bodyparts-list">
+              <option>--Please choose an option--</option>
+              {
+                bodyparts.length
+                  ? bodyparts.map((bodyparts, index) => <BodypartsItem key={bodyparts.bodyPartId} bodyparts={bodyparts} indexValue={index}/>)
+                  : <option className="list-group-item">No Body Parts specified</option>
+              }
+            </select>
+          </div>
+        <div className="bodyparts-image">
+          <img src="/images/body-image_blue.jpg" alt="Body Image" className="bodyPartsBodyImage" />
+        </div>
+          <div>
+            <button type="submit" className="bodypart-submit">Submit</button>
+          </div>
+        </form>
       </div>
     </>
     );
   }
 }
+
+export default withRouter(Bodyparts);
