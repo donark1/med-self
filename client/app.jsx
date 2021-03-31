@@ -4,10 +4,25 @@ import Home from './pages/home';
 import Createprofile from './pages/createprofile';
 import Bodyparts from './pages/bodyparts';
 import Symptoms from './pages/symptoms';
-import Results from './pages/results';
+import Treatments from './pages/treatments';
 import Login from './pages/login';
 import Logout from './pages/logout';
 import Navbar from './components/navbar';
+import Headneck from './pages/bodyparts/headneck';
+import Chest from './pages/bodyparts/chest';
+import Abdomen from './pages/bodyparts/abdomen';
+import Legsfeet from './pages/bodyparts/legsfeet';
+import ShouldersArmsHands from './pages/bodyparts/shouldersarmshands';
+import ChestDiagnosis from './pages/diagnosis/chestdiagnosis';
+import ShouldersArmsHandsDiagnosis from './pages/diagnosis/shouldersarmshandsdiagnosis';
+import AbdomenDiagnosis from './pages/diagnosis/abdomendiagnosis';
+import HeadNeckDiagnosis from './pages/diagnosis/headneckdiagnosis';
+import LegsFeetDiagnosis from './pages/diagnosis/legsfeetdiagnosis';
+import ChestTreatments from './pages/treatments/chesttreatments';
+import ShouldersArmsHandsTreatments from './pages/treatments/shouldersarmshandstreatments';
+import AbdomenTreatments from './pages/treatments/abdomentreatments';
+import HeadNeckTreatments from './pages/treatments/headnecktreatments';
+import LegsFeetTreatments from './pages/treatments/legsfeettreatments';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -15,11 +30,13 @@ export default class App extends React.Component {
     this.state = {
       users: null,
       signInRedirect: false,
-      signOutRedirect: false
+      signOutRedirect: false,
+      bodypart: null
     };
     this.createProfile = this.createProfile.bind(this);
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
+    this.renderBodypart = this.renderBodypart.bind(this);
   }
 
   componentDidMount() {
@@ -98,6 +115,26 @@ export default class App extends React.Component {
       .catch(error => console.error(error));
   }
 
+  renderBodypart(bodypart) {
+    fetch('/api/bodypart', {
+      method: 'POST',
+      body: JSON.stringify(bodypart),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(res => {
+        if (!res.ok) { throw res; }
+        return res.json();
+      })
+      .then(userLogout => {
+        this.setState({
+          bodypart: bodypart
+        });
+      })
+      .catch(error => console.error(error));
+  }
+
   render() {
     return (
       <>
@@ -126,11 +163,56 @@ export default class App extends React.Component {
         <Route path="/bodyparts">
           <Bodyparts />
         </Route>
+        <Route path="/headneck">
+          <Headneck />
+        </Route>
+        <Route path="/chest">
+          <Chest />
+        </Route>
+        <Route path="/abdomen">
+          <Abdomen />
+        </Route>
+        <Route path="/legsfeet">
+          <Legsfeet />
+        </Route>
+        <Route path="/shouldersarmshands">
+          <ShouldersArmsHands />
+        </Route>
+        <Route path="/headneckdiagnosis/:diagnosisId/:symptomId">
+          <HeadNeckDiagnosis />
+        </Route>
+        <Route path="/shouldersarmshandsdiagnosis/:diagnosisId/:symptomId">
+          <ShouldersArmsHandsDiagnosis />
+        </Route>
+        <Route path="/chestdiagnosis/:diagnosisId/:symptomId">
+          <ChestDiagnosis />
+        </Route>
+        <Route path="/abdomendiagnosis/:diagnosisId/:symptomId">
+          <AbdomenDiagnosis />
+        </Route>
+        <Route path="/legsfeetdiagnosis/:diagnosisId/:symptomId">
+          <LegsFeetDiagnosis />
+        </Route>
         <Route path="/symptoms">
           <Symptoms />
         </Route>
-        <Route path="/results">
-          <Results />
+        <Route path="/headnecktreatments">
+          <HeadNeckTreatments />
+        </Route>
+        <Route path="/shouldersarmshandstreatments">
+          <ShouldersArmsHandsTreatments />
+        </Route>
+        <Route path="/chesttreatments">
+          <ChestTreatments />
+        </Route>
+        <Route path="/abdomentreatments">
+          <AbdomenTreatments />
+        </Route>
+        <Route path="/legsfeettreatments">
+          <LegsFeetTreatments />
+        </Route>
+        <Route path="/treatments">
+          <Treatments />
         </Route>
         <Route path="/logout">
           <Logout />
