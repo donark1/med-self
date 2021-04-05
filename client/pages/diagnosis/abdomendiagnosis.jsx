@@ -45,8 +45,8 @@ class AbdomenDiagnosis extends React.Component {
     event.preventDefault();
     const { diagnosis, routeString } = this.state;
     const index = diagnosis.findIndex(d => d.diagnosisname === routeString);
-    const { symptomId, diagnosisId } = diagnosis[index];
-    this.props.history.push(`/abdomentreatments/${symptomId}/${diagnosisId}`);
+    const { diagnosisId } = diagnosis[index];
+    this.props.history.push(`/abdomentreatments/${diagnosisId}`);
   }
 
   render() {

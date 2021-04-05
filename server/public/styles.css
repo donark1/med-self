@@ -56,7 +56,7 @@ h1 {
 ul {
   list-style-type: none;
   color: rgb(48, 170, 234);
-  font-size: 15px;
+  font-size: 25px;
 }
 
 .logo {
@@ -88,6 +88,11 @@ p {
   text-align: center;
   color: white;
   font-size: 20px;
+}
+
+.p4 {
+  font-size: 14px;
+  color: rgb(48, 170, 234);
 }
 
 .disclaimer {
