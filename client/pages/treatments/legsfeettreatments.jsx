@@ -1,6 +1,16 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
+function TreatmentsItem({ treatments, indexValue }) {
+  const { treatmentsname } = treatments;
+
+  return (
+    <li value={treatments.id} key={indexValue} className="list-group-item">
+      {treatmentsname}
+    </li>
+  );
+}
+
 class LegsFeetTreatments extends React.Component {
   constructor(props) {
     super(props);
@@ -10,13 +20,48 @@ class LegsFeetTreatments extends React.Component {
     };
   }
 
+  componentDidMount() {
+    const ids = this.props.match.params;
+
+    fetch('/api/treatments/legsfeettreatments', {
+      method: 'POST',
+      body: JSON.stringify(ids),
+      headers: { 'content-type': 'application/json' }
+    })
+      .then(res => res.json())
+      .then(treatments => {
+        this.setState({ treatments });
+      });
+  }
+
   render() {
+    const { treatments } = this.state;
+
+    if (!treatments) {
+      return <p className="text-center">Loading Treatments...</p>;
+    }
 
     return (
       <div className="container">
-
-        <h1 className="text-center">Legs/Feet Treatments Page</h1>
-
+        <h1 className="text-center">Here are suggested treatments for the diagnosis of your symptoms that you maybe experiencing:</h1>
+        <div className="treatments-menu">
+          <ul className="treatments">
+            {
+              treatments.length
+                ? treatments.map((treatments, index) => <TreatmentsItem key={treatments.treatmentsId} treatments={treatments} indexValue={index} />)
+                : <li className="list-group-item">No treatments specified</li>
+            }
+          </ul>
+        </div>
+        <div className="contact-email">
+          <p className="p4">For further questions regarding your treatments, diagnosis, or for more information, please email us and a health professional will respond shortly:   medicalquestions@medself.com</p>
+        </div>
+        <div className="treatments-image">
+          <img src="/images/legs&feet.png" alt="Body Image" className="bodyPartsImage" />
+        </div>
+        <div className="disclaimer">
+          <p className="p3">*Please note that these treatments are suggested.  Consultation with doctor is strongly recommended.</p>
+        </div>
       </div>
     );
   }

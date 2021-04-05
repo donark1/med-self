@@ -45,8 +45,8 @@ class HeadNeckDiagnosis extends React.Component {
     event.preventDefault();
     const { diagnosis, routeString } = this.state;
     const index = diagnosis.findIndex(d => d.diagnosisname === routeString);
-    const { symptomId, diagnosisId } = diagnosis[index];
-    this.props.history.push(`/headnecktreatments/${symptomId}/${diagnosisId}`);
+    const { diagnosisId } = diagnosis[index];
+    this.props.history.push(`/headnecktreatments/${diagnosisId}`);
   }
 
   render() {

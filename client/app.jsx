@@ -196,19 +196,19 @@ export default class App extends React.Component {
         <Route path="/symptoms">
           <Symptoms />
         </Route>
-        <Route path="/headnecktreatments">
+          <Route path="/headnecktreatments/:diagnosisId">
           <HeadNeckTreatments />
         </Route>
-        <Route path="/shouldersarmshandstreatments">
+          <Route path="/shouldersarmshandstreatments/:diagnosisId">
           <ShouldersArmsHandsTreatments />
         </Route>
-        <Route path="/chesttreatments">
+          <Route path="/chesttreatments/:diagnosisId">
           <ChestTreatments />
         </Route>
-        <Route path="/abdomentreatments">
+          <Route path="/abdomentreatments/:diagnosisId">
           <AbdomenTreatments />
         </Route>
-        <Route path="/legsfeettreatments">
+          <Route path="/legsfeettreatments/:diagnosisId">
           <LegsFeetTreatments />
         </Route>
         <Route path="/treatments">

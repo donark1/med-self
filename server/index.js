@@ -258,7 +258,7 @@ app.post('/api/diagnosis/chestdiagnosis', (req, res, next) => {
     select "diagnosisId",
            "symptomId",
            "diagnosisname"
-          from diagnosis
+          from "diagnosis"
           where "symptomId" = ($1)
   `;
 
@@ -276,7 +276,7 @@ app.post('/api/diagnosis/abdomendiagnosis', (req, res, next) => {
     select "diagnosisId",
            "symptomId",
            "diagnosisname"
-          from diagnosis
+          from "diagnosis"
           where "symptomId" = ($1)
   `;
 
@@ -294,7 +294,7 @@ app.post('/api/diagnosis/legsfeetdiagnosis', (req, res, next) => {
     select "diagnosisId",
            "symptomId",
            "diagnosisname"
-          from diagnosis
+          from "diagnosis"
           where "symptomId" = ($1)
   `;
 
@@ -303,6 +303,120 @@ app.post('/api/diagnosis/legsfeetdiagnosis', (req, res, next) => {
     .then(result => {
       res.json(result.rows);
     });
+});
+
+// treatments for headneck
+app.post('/api/treatments/headnecktreatments', (req, res, next) => {
+  const { diagnosisId } = req.body;
+
+  const sql = `
+    select "treatmentsId",
+           "diagnosisId",
+           "treatmentsname"
+          from "treatments"
+          where "diagnosisId" = ($1)
+  `;
+
+  const params = [diagnosisId];
+  db.query(sql, params)
+    .then(result => {
+      res.json(result.rows);
+    });
+});
+
+// treatments for abdomen
+app.post('/api/treatments/abdomentreatments', (req, res, next) => {
+  const { diagnosisId } = req.body;
+  const sql = `
+    select "treatmentsId",
+           "diagnosisId",
+           "treatmentsname"
+          from "treatments"
+          where "diagnosisId" = ($1)
+  `;
+
+  const params = [diagnosisId];
+  db.query(sql, params)
+    .then(result => {
+      res.json(result.rows);
+    })
+    .catch(err => next(err));
+});
+
+// treatments for shoulders/arms/hands
+app.post('/api/treatments/shouldersarmshandstreatments', (req, res, next) => {
+  const { diagnosisId } = req.body;
+  const sql = `
+    select "treatmentsId",
+           "diagnosisId",
+           "treatmentsname"
+          from "treatments"
+          where "diagnosisId" = ($1)
+  `;
+
+  const params = [diagnosisId];
+  db.query(sql, params)
+    .then(result => {
+      res.json(result.rows);
+    })
+    .catch(err => next(err));
+});
+
+// treatments for chest
+app.post('/api/treatments/chesttreatments', (req, res, next) => {
+  const { diagnosisId } = req.body;
+  const sql = `
+    select "treatmentsId",
+           "diagnosisId",
+           "treatmentsname"
+          from "treatments"
+          where "diagnosisId" = ($1)
+  `;
+
+  const params = [diagnosisId];
+  db.query(sql, params)
+    .then(result => {
+      res.json(result.rows);
+    })
+    .catch(err => next(err));
+});
+
+// treatments for abdomen
+app.post('/api/treatments/abdomentreatments', (req, res, next) => {
+  const { diagnosisId } = req.body;
+  const sql = `
+    select "treatmentsId",
+           "diagnosisId",
+           "treatmentsname"
+          from "treatments"
+          where "diagnosisId" = ($1)
+  `;
+
+  const params = [diagnosisId];
+  db.query(sql, params)
+    .then(result => {
+      res.json(result.rows);
+    })
+    .catch(err => next(err));
+});
+
+// treatments for legs/feet
+app.post('/api/treatments/legsfeettreatments', (req, res, next) => {
+  const { diagnosisId } = req.body;
+  const sql = `
+    select "treatmentsId",
+           "diagnosisId",
+           "treatmentsname"
+          from "treatments"
+          where "diagnosisId" = ($1)
+  `;
+
+  const params = [diagnosisId];
+  db.query(sql, params)
+    .then(result => {
+      res.json(result.rows);
+    })
+    .catch(err => next(err));
 });
 
 app.listen(process.env.PORT, () => {
