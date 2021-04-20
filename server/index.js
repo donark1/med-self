@@ -25,28 +25,6 @@ app.get('/api/bodyparts', (req, res) => {
     });
 });
 
-app.get('/api/symptoms', (req, res) => {
-  const sql = `
-    select * from symptoms
-  `;
-
-  db.query(sql)
-    .then(result => {
-      res.json(result.rows);
-    });
-});
-
-app.get('/api/results', (req, res) => {
-  const sql = `
-    select * from results
-  `;
-
-  db.query(sql)
-    .then(result => {
-      res.json(result.rows);
-    });
-});
-
 app.get('/api/users', (req, res) => {
   const sql = `
     select * from users

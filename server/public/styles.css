@@ -28,7 +28,7 @@ h1 {
   z-index: 1;
   position: absolute;
   width: 175px;
-  height: 100vh;
+  height: 125vh;
   top: 0;
   left: 20px;
   transition: all 0.5s ease;
@@ -45,6 +45,13 @@ h1 {
 
 .white {
   color: white;
+  background-color: rgb(48, 170, 234);
+  border: none;
+
+}
+
+.white:hover {
+  text-decoration: none;
 }
 
 .ul-list-container {
@@ -126,7 +133,7 @@ p {
 }
 
 .profile-button {
-  padding-top: 15px;
+  padding-top: 10px;
 }
 
 .profile-button:hover {
@@ -134,7 +141,7 @@ p {
 }
 
 .login {
-  padding-top: 30px;
+  padding-top: 10px;
 }
 
 .login:hover {

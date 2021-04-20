@@ -1,9 +1,27 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
-import Createprofile from './createprofile';
-import Login from './login';
+import { withRouter } from 'react-router-dom';
 
-export default function Home(props) {
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      login: true
+    };
+    this.handleCreateProfileSubmit = this.handleCreateProfileSubmit.bind(this);
+    this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
+  }
+
+  handleCreateProfileSubmit(event) {
+    event.preventDefault();
+    this.props.history.push(`/createprofile`);
+  }
+
+  handleLoginSubmit(event) {
+    event.preventDefault();
+    this.props.history.push(`/login`);
+  }
+
+render () {
   return (
     <>
       <div>
@@ -14,17 +32,18 @@ export default function Home(props) {
         <p>So go ahead, create a profile, and lets get you feeling great again!</p>
       </div>
       <div className="buttons">
-        <Link className="profile-button" to="/createprofile">Create Profile</Link>
+        <form type="submit" onSubmit={this.handleCreateProfileSubmit} >
+          <button className="profile-button" >Create Profile</button>
+        </form>
       </div>
       <div className="buttons">
-        <Link className="login" to="/login">Login</Link>
+        <form type="submit" onSubmit={this. handleLoginSubmit} >
+          <button className="login">Login</button>
+        </form>
       </div>
-      <Route path="/createprofile">
-        <Createprofile />
-      </Route>
-      <Route path="/login">
-        <Login />
-      </Route>
     </>
-  );
+    );
+  }
 }
+
+export default withRouter(Home);

@@ -1,6 +1,12 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-export default function Logout(props) {
+class Logout extends React.Component {
+  componentDidMount() {
+    this.props.logout();
+  }
+
+  render() {
   return (
       <>
         <div>
@@ -8,5 +14,8 @@ export default function Logout(props) {
           <img src="/images/body-image_blue.jpg" alt="Body Image" className="bodyImage" />
         </div>
       </>
-  );
+    );
+  }
 }
+
+export default withRouter(Logout);
