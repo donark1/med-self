@@ -3,8 +3,6 @@ import { Route, Link, Redirect } from 'react-router-dom';
 import Home from './pages/home';
 import Createprofile from './pages/createprofile';
 import Bodyparts from './pages/bodyparts';
-import Symptoms from './pages/symptoms';
-import Treatments from './pages/treatments';
 import Login from './pages/login';
 import Logout from './pages/logout';
 import Navbar from './components/navbar';
@@ -31,7 +29,8 @@ export default class App extends React.Component {
       users: null,
       signInRedirect: false,
       signOutRedirect: false,
-      bodypart: null
+      bodypart: null,
+      isLoggedIn: false
     };
     this.createProfile = this.createProfile.bind(this);
     this.login = this.login.bind(this);
@@ -39,19 +38,7 @@ export default class App extends React.Component {
     this.renderBodypart = this.renderBodypart.bind(this);
   }
 
-  componentDidMount() {
-    this.getAllUsers();
-  }
-
-  getAllUsers() {
-    fetch('/api/users')
-      .then(response => response.json())
-      .then(data => this.setState({ users: data }))
-      .catch(error => console.error(error));
-  }
-
   createProfile(newUser) {
-    const userList = this.state.users;
     fetch('/api/users', {
       method: 'POST',
       body: JSON.stringify(newUser),
@@ -64,9 +51,13 @@ export default class App extends React.Component {
         return res.json();
       })
       .then(newUser => {
-        userList.push(newUser);
+        const emailStringify = JSON.stringify(email.value);
+        const passwordStringify = JSON.stringify(password.value);
+        window.localStorage.setItem("email", emailStringify);
+        window.localStorage.setItem("password", passwordStringify);
         this.setState({
-          users: userList,
+          users: newUser,
+          isLoggedIn: true,
           profileRedirect: 'bodyparts'
         });
       })
@@ -85,34 +76,26 @@ export default class App extends React.Component {
         if (!res.ok) { throw res; }
         return res.json();
       })
-      .then(userLogin => {
+      .then(loginUser => {
+        const emailStringify = JSON.stringify(email.value);
+        const passwordStringify = JSON.stringify(password.value);
+        window.localStorage.setItem("email", emailStringify);
+        window.localStorage.setItem("password", passwordStringify);
         this.setState({
-          users: userLogin,
+          users: loginUser,
+          isLoggedIn: true,
           signInRedirect: 'bodyparts'
         });
       })
       .catch(error => console.error(error));
   }
 
-  logout(logoutUser) {
-    fetch('/api/logout', {
-      method: 'POST',
-      body: JSON.stringify(logoutUser),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(res => {
-        if (!res.ok) { throw res; }
-        return res.json();
-      })
-      .then(userLogout => {
-        this.setState({
-          users: userLogout,
-          signOutRedirect: 'logout'
-        });
-      })
-      .catch(error => console.error(error));
+  logout() {
+    this.setState({
+      users: null,
+      isLoggedIn: false,
+      signInRedirect: false });
+    window.localStorage.clear();
   }
 
   renderBodypart(bodypart) {
@@ -139,7 +122,7 @@ export default class App extends React.Component {
     return (
       <>
         <div>
-          <Navbar />
+            <Navbar value={this.state.isLoggedIn} />
         </div>
         <div>
         <Link className="px-4" to="/"><img src="/images/Med-Self_Logo.jpg" alt="Med-Self" className="logo" /></Link>
@@ -193,9 +176,6 @@ export default class App extends React.Component {
         <Route path="/legsfeetdiagnosis/:diagnosisId/:symptomId">
           <LegsFeetDiagnosis />
         </Route>
-        <Route path="/symptoms">
-          <Symptoms />
-        </Route>
           <Route path="/headnecktreatments/:diagnosisId">
           <HeadNeckTreatments />
         </Route>
@@ -211,11 +191,8 @@ export default class App extends React.Component {
           <Route path="/legsfeettreatments/:diagnosisId">
           <LegsFeetTreatments />
         </Route>
-        <Route path="/treatments">
-          <Treatments />
-        </Route>
         <Route path="/logout">
-          <Logout />
+          <Logout logout={this.logout}/>
         </Route>
       </div>
     </>
