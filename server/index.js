@@ -2,7 +2,7 @@ require('dotenv/config');
 const express = require('express');
 const staticMiddleware = require('./static-middleware');
 const { Pool } = require('pg');
-const errorMiddleware = require('./error-middleware');
+// const errorMiddleware = require('./error-middleware');
 const ClientError = require('./client-error'); // eslint-disable-line
 
 const db = new Pool({
@@ -398,13 +398,13 @@ app.post('/api/treatments/legsfeettreatments', (req, res, next) => {
     .catch(err => next(err));
 });
 
-app.use((req, res) => {
-  res.sendFile('/index.html', {
-    root: path.join(__dirname, 'public')
-  });
-});
+// app.use((req, res) => {
+//   res.sendFile('/index.html', {
+//     root: path.join(__dirname, 'public')
+//   });
+// });
 
-app.use(errorMiddleware);
+// app.use(errorMiddleware);
 
 app.listen(process.env.PORT, () => {
   // eslint-disable-next-line no-console
