@@ -4,7 +4,7 @@ const staticMiddleware = require('./static-middleware');
 const { Pool } = require('pg');
 const ClientError = require('./client-error'); // eslint-disable-line
 
-const db = new pg.Pool({
+const db = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false
