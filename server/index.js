@@ -5,8 +5,11 @@ const { Pool } = require('pg');
 // const errorMiddleware = require('./error-middleware');
 const ClientError = require('./client-error'); // eslint-disable-line
 
-const db = new Pool({
-  connectionString: process.env.DATABASE_URL
+const db = new pg.Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 const app = express();
