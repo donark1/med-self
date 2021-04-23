@@ -1,3 +1,5 @@
+ drop schema "public" cascade;
+ create schema "public";
 
  CREATE TABLE "users" (
 	"userId" serial NOT NULL,
