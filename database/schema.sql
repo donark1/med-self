@@ -17,8 +17,6 @@
   OIDS=FALSE
 );
 
-
-
 CREATE TABLE "bodyparts" (
 	"bodyPartId" serial NOT NULL,
 	"bodypartname" TEXT NOT NULL,
@@ -26,8 +24,6 @@ CREATE TABLE "bodyparts" (
 ) WITH (
   OIDS=FALSE
 );
-
-
 
 CREATE TABLE "symptoms" (
 	"symptomId" serial NOT NULL,
@@ -38,8 +34,6 @@ CREATE TABLE "symptoms" (
   OIDS=FALSE
 );
 
-
-
 CREATE TABLE "diagnosis" (
 	"diagnosisId" serial NOT NULL,
 	"symptomId" integer NOT NULL,
@@ -48,8 +42,6 @@ CREATE TABLE "diagnosis" (
 ) WITH (
   OIDS=FALSE
 );
-
-
 
 CREATE TABLE "treatments" (
 	"treatmentsId" serial NOT NULL,
@@ -61,12 +53,7 @@ CREATE TABLE "treatments" (
   OIDS=FALSE
 );
 
-
-
-
-
 ALTER TABLE "symptoms" ADD CONSTRAINT "symptoms_fk0" FOREIGN KEY ("bodyPartId") REFERENCES "bodyparts"("bodyPartId");
-
 ALTER TABLE "diagnosis" ADD CONSTRAINT "diagnosis_fk1" FOREIGN KEY ("symptomId") REFERENCES "symptoms"("symptomId");
 ALTER TABLE "treatments" ADD CONSTRAINT "treatments_fk0" FOREIGN KEY ("treatmentsId") REFERENCES "diagnosis"("diagnosisId");
 ALTER TABLE "treatments" ADD CONSTRAINT "treatments_fk1" FOREIGN KEY ("diagnosisId") REFERENCES "diagnosis"("diagnosisId");
