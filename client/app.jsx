@@ -180,6 +180,7 @@ export default class App extends React.Component {
         <Route path="/legsfeetdiagnosis/:diagnosisId/:symptomId">
           <LegsFeetDiagnosis />
         </Route>
+        <Route>
           <HeadNeckTreatments />
         </Route>
         <Route path="/shouldersarmshandstreatments/:diagnosisId">
