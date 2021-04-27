@@ -1,11 +1,12 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-export default class Login extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: 'demouser@abc.com',
-      password: 'demouser'
+      email: '',
+      password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -52,3 +53,5 @@ export default class Login extends React.Component {
     );
   }
 }
+
+export default withRouter(Login);

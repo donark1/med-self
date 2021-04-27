@@ -14,7 +14,6 @@ function TreatmentsItem({ treatments, indexValue }) {
 class AbdomenTreatments extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       treatments: null
     };

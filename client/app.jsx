@@ -95,8 +95,7 @@ export default class App extends React.Component {
     this.setState({
       users: null,
       isLoggedIn: false,
-      signInRedirect: false
-    });
+      signInRedirect: false });
     window.localStorage.clear();
   }
 
@@ -181,7 +180,6 @@ export default class App extends React.Component {
         <Route path="/legsfeetdiagnosis/:diagnosisId/:symptomId">
           <LegsFeetDiagnosis />
         </Route>
-        <Route path="/headnecktreatments/:diagnosisId">
           <HeadNeckTreatments />
         </Route>
         <Route path="/shouldersarmshandstreatments/:diagnosisId">
@@ -197,7 +195,7 @@ export default class App extends React.Component {
           <LegsFeetTreatments />
         </Route>
         <Route path="/logout">
-          <Logout logout={this.logout} />
+          <Logout logout={this.logout}/>
         </Route>
       </div>
     </>
