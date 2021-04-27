@@ -32,6 +32,9 @@ class Navbar extends React.Component {
                     <Link className="white" to="/">Home</Link>
                   </li>
                   <li>
+                    <Link className="white" to="/aboutus">About Us</Link>
+                  </li>
+                  <li>
                     {
                       isLoggedIn
                         ? <Link className="white" to="/logout">Logout</Link>

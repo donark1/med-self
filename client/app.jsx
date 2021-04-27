@@ -3,6 +3,7 @@ import { Route, Link, Redirect } from 'react-router-dom';
 import Home from './pages/home';
 import Createprofile from './pages/createprofile';
 import Bodyparts from './pages/bodyparts';
+import Aboutus from './pages/aboutus';
 import Login from './pages/login';
 import Logout from './pages/logout';
 import Navbar from './components/navbar';
@@ -122,12 +123,15 @@ export default class App extends React.Component {
     return (
       <>
         <div>
-            <Navbar value={this.state.isLoggedIn} />
+          <Navbar value={this.state.isLoggedIn} />
         </div>
         <div>
         <Link className="px-4" to="/"><img src="/images/Med-Self_Logo.jpg" alt="Med-Self" className="logo" /></Link>
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route path="/aboutus">
+          <Aboutus/>
         </Route>
         <Route path="/createprofile">
           {this.state.profileRedirect === 'bodyparts'
@@ -176,19 +180,18 @@ export default class App extends React.Component {
         <Route path="/legsfeetdiagnosis/:diagnosisId/:symptomId">
           <LegsFeetDiagnosis />
         </Route>
-          <Route path="/headnecktreatments/:diagnosisId">
           <HeadNeckTreatments />
         </Route>
-          <Route path="/shouldersarmshandstreatments/:diagnosisId">
+        <Route path="/shouldersarmshandstreatments/:diagnosisId">
           <ShouldersArmsHandsTreatments />
         </Route>
-          <Route path="/chesttreatments/:diagnosisId">
+        <Route path="/chesttreatments/:diagnosisId">
           <ChestTreatments />
         </Route>
-          <Route path="/abdomentreatments/:diagnosisId">
+        <Route path="/abdomentreatments/:diagnosisId">
           <AbdomenTreatments />
         </Route>
-          <Route path="/legsfeettreatments/:diagnosisId">
+        <Route path="/legsfeettreatments/:diagnosisId">
           <LegsFeetTreatments />
         </Route>
         <Route path="/logout">
