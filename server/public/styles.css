@@ -47,6 +47,7 @@ h1, h3 {
   color: white;
   background-color: rgb(48, 170, 234);
   border: none;
+}
 
 .white:hover {
   text-decoration: none;
@@ -133,7 +134,6 @@ p {
 
 .profile-button {
   margin-right: 1%;
-  padding-top: 10px;
 }
 
 .login {
@@ -142,9 +142,6 @@ p {
 
 .profile-button:hover {
   text-decoration: none;
-  
-.login {
-  padding-top: 10px;
 }
 
 .login:hover {
