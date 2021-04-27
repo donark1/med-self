@@ -213,9 +213,9 @@ button:focus {
 
 .bodyPartsBodyImage {
   display: block;
-  margin-left: 40%;
+  margin-left: auto;
   margin-right: auto;
-  width: 20%;
+  width: 15%;
 }
 
 .bodypart-submit {
@@ -249,7 +249,7 @@ button:focus {
 
 .bodyPartsImage {
   display: block;
-  margin-left: 40%;
+  margin-left: auto;
   margin-right: auto;
   width: 15%;
 }
