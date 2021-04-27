@@ -43,7 +43,7 @@ class ShouldersArmsHandsTreatments extends React.Component {
 
     return (
       <div className="container">
-        <h1 className="text-center">Here are suggested treatments for the diagnosis of your symptoms that you maybe experiencing:</h1>
+        <h3 className="text-center">Here are suggested treatments for the diagnosis of your symptoms that you maybe experiencing:</h3>
         <div className="treatments-menu">
           <ul className="treatments">
             {

@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
 
-export default class Navbar extends React.Component {
+class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sidebar: false
+      sidebar: false,
+      isLoggedIn: false
     };
     this.handleNav = this.handleNav.bind(this);
   }
@@ -14,7 +16,8 @@ export default class Navbar extends React.Component {
   }
 
   render() {
-    const { logout } = this.context;
+    const isLoggedIn = this.props.value;
+
     if (this.state.sidebar) {
       return (
         <div>
@@ -26,18 +29,23 @@ export default class Navbar extends React.Component {
               <div className="mr-2">
                 <ul>
                   <li>
-                    <a href="/" onClick={this.handleNav} className="white">Home</a>
+                    <Link className="white" to="/">Home</Link>
                   </li>
-                  <li className="mt-2">
-                    <a href="logout" onClick={logout} className="white">Logout</a>
+                  <li>
+                    <Link className="white" to="/aboutus">About Us</Link>
+                  </li>
+                  <li>
+                    {
+                      isLoggedIn
+                        ? <Link className="white" to="/logout">Logout</Link>
+                        : <Link className="white" to="/login">Login</Link>
+                    }
                   </li>
                 </ul>
               </div>
             </div>
-            <i className="fas fa-bars fa-2x white" onClick={this.handleNav}></i>
           </nav>
         </div>
-
       );
     }
     return (
@@ -47,7 +55,8 @@ export default class Navbar extends React.Component {
           <i className="fas fa-bars white fa-2x" onClick={this.handleNav}></i>
         </nav>
       </div>
-
     );
   }
 }
+
+export default withRouter(Navbar);
