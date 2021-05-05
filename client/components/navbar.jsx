@@ -32,13 +32,13 @@ class Navbar extends React.Component {
                     <a href="/" className="white">Home</a>
                   </li>
                   <li>
-                    <a href="aboutus" className="white">About Us</a>
+                    <a href="/aboutus" className="white">About Us</a>
                   </li>
                   <li>
                     {
                       isLoggedIn
-                        ? <a href="logout" className="white">Logout</a>
-                        : <a href="login" className="white">Login</a>
+                        ? <a href="/logout" className="white">Logout</a>
+                        : <a href="/login" className="white">Login</a>
                     }
                   </li>
                 </ul>
