@@ -61,6 +61,9 @@ class AbdomenTreatments extends React.Component {
         <div className="disclaimer">
           <p className="p3">*Please note that these treatments are suggested.  Consultation with doctor is strongly recommended.</p>
         </div>
+        <div>
+          <a href="/" className="homeButton"><i class="fa fa-home"></i> Home</a>
+        </div>
       </div>
     );
   }
