@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -29,16 +29,16 @@ class Navbar extends React.Component {
               <div className="mr-2">
                 <ul>
                   <li>
-                    <a href="/" className="white">Home</a>
+                    <Link className="white" onClick={this.handleNav} to="/">Home</Link>
                   </li>
                   <li>
-                    <a href="/aboutus" className="white">About Us</a>
+                    <Link className="white" onClick={this.handleNav}  to="/aboutus">About Us</Link>
                   </li>
                   <li>
                     {
                       isLoggedIn
-                        ? <a href="/logout" className="white">Logout</a>
-                        : <a href="/login" className="white">Login</a>
+                        ? <Link className="white" onClick={this.handleNav} to="/logout">Logout</Link>
+                        : <Link className="white" onClick={this.handleNav} to="/login">Login</Link>
                     }
                   </li>
                 </ul>
