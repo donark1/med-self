@@ -401,7 +401,7 @@ app.post('/api/treatments/legsfeettreatments', (req, res, next) => {
 
 app.use((req, res) => {
   res.sendFile('/index.html', {
-    root: path.join(__dirname, '../public')
+    root: path.join(__dirname, 'public')
   });
 });
 
