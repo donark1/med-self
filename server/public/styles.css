@@ -4,11 +4,13 @@ html {
 
 body {
   background-color: white;
-  min-height: 100vh;
+  min-height: 60em;
+  height: 600px;
   border-radius: 50%;
 }
 
-h1, h3 {
+h1,
+h3 {
   color: rgb(48, 170, 234);
 }
 
@@ -41,7 +43,7 @@ h1, h3 {
 }
 
 .navbar-height {
-  height: 0.0rem;
+  height: 0;
 }
 
 .white {
@@ -119,7 +121,7 @@ p {
 }
 
 .buttons {
-  text-align:center;
+  text-align: center;
   padding-top: 7%;
 }
 
@@ -153,24 +155,17 @@ p {
   color: rgb(48, 170, 234);
 }
 
-.row {
-  column-count: 3;
-}
-
 .bodyImageProfile {
-  margin-left: 36%;
+  margin-left: 50%;
   width: 30%;
-  padding-top: 5%;
 }
 
 .input {
-  margin-left: 30%;
-  padding: 1px;
+  padding: 2px;
   color: rgb(48, 170, 234);
 }
 
 input {
-  margin-left: 30%;
   width: 50%;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -321,8 +316,6 @@ button:focus {
 .homeButton:hover {
   text-decoration: none;
 }
-
-
 
 @media screen and (min-width: 1400px) {
   .sidebar {
