@@ -399,13 +399,13 @@ app.post('/api/treatments/legsfeettreatments', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.use(staticMiddleware);
+
 app.use((req, res) => {
   res.sendFile('/index.html', {
     root: path.join(__dirname, 'public')
   });
 });
-
-app.use(staticMiddleware);
 
 app.listen(process.env.PORT, () => {
   // eslint-disable-next-line no-console
