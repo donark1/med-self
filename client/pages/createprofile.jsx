@@ -48,7 +48,7 @@ export default class Createprofile extends React.Component {
               <h4 className="input">First Name:</h4> <input type="text" id="firstName" name="firstName" onChange={this.handleChange} required />
               <h4 c className="input">Last Name:</h4> <input type="text" id="lastName" name="lastName" onChange={this.handleChange} required />
               <h4 c className="input">Email:</h4> <input type="text" id="email" name="email" onChange={this.handleChange} required />
-              <h4 c className="input">Password:</h4> <input type="text" id="password" name="password" onChange={this.handleChange} required />
+              <h4 c className="input">Password:</h4> <input type="password" id="password" name="password" onChange={this.handleChange} required />
               <h4 c className="input">Gender:</h4> <input type="text" placeholder="M/F" id="gender" name="gender" onChange={this.handleChange} required />
             </div>
             <div className="col-4">

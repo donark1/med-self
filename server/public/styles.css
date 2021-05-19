@@ -7,6 +7,8 @@ body {
   min-height: 60em;
   height: 600px;
   border-radius: 50%;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 h1,
@@ -20,6 +22,7 @@ h3 {
   position: absolute;
   width: 100px;
   left: -100px;
+  height: 125vh;
   top: 0;
   transform: scale(1);
   transition: all 0.5s ease;
@@ -29,9 +32,8 @@ h3 {
   background-color: rgb(48, 170, 234);
   z-index: 1;
   position: absolute;
-  padding-top: 100px;
   width: 175px;
-  height: 125vh;
+  height: 100vh;
   top: 70px;
   left: 20px;
   transition: all 0.5s ease;
@@ -267,7 +269,6 @@ button:focus {
 }
 
 .login-input {
-  margin-left: 30%;
   padding-top: 5px;
   color: rgb(48, 170, 234);
 }
