@@ -42,7 +42,7 @@ class Login extends React.Component {
               <h4 className="login-input">Email:</h4><input type="text" id="email" name="email" defaultValue="demouser@abc.com" onChange={this.handleChange} disabled />
             </div>
             <div className="col-4">
-              <h4 className="login-input">Password:</h4><input type="text" id="password" name="password" defaultValue="demouser" onChange={this.handleChange} disabled />
+              <h4 className="login-input">Password:</h4><input type="password" id="password" name="password" defaultValue="demouser" onChange={this.handleChange} disabled />
             </div>
           </div>
           <div>
