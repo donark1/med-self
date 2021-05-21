@@ -72,7 +72,7 @@ class LegsFeetDiagnosis extends React.Component {
               </select>
             </div>
             <div className="diagnosis-image">
-              <img src="/images/head.png" alt="Body Image" className="bodyPartsImage" />
+              <img src="/images/legs&feet.png" alt="Body Image" className="bodyPartsImage" />
             </div>
             <div>
               <button type="submit" className="diagnosis-submit">Submit</button>

@@ -29,10 +29,14 @@ class Navbar extends React.Component {
               <div className="mr-2">
                 <ul>
                   <li>
-                    <Link className="white" onClick={this.handleNav} to="/">Home</Link>
+                    {
+                      isLoggedIn
+                        ? <Link className="white" onClick={this.handleNav} to="/greetings">Home</Link>
+                        : <Link className="white" onClick={this.handleNav} to="/">Home</Link>
+                    }
                   </li>
                   <li>
-                    <Link className="white" onClick={this.handleNav}  to="/aboutus">About Us</Link>
+                    <Link className="white" onClick={this.handleNav} to="/aboutus">About Us</Link>
                   </li>
                   <li>
                     {

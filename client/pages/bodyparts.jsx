@@ -57,7 +57,7 @@ class Bodyparts extends React.Component {
     return (
     <>
       <div className="container">
-          <h1 className="text-center">Welcome User. </h1>
+          <h1 className="text-center">Welcome! </h1>
           <h1 className="text-center"> Please select area of concern: </h1>
         <form onSubmit={this.handleSubmit}>
           <div className="bodyparts-menu">
