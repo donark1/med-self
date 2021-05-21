@@ -31,7 +31,7 @@ class Navbar extends React.Component {
                   <li>
                     {
                       isLoggedIn
-                        ? <Link className="white" onClick={this.handleNav} to="/greetings">Home</Link>
+                        ? <Link className="white" onClick={this.handleNav} to="/bodyparts">Home</Link>
                         : <Link className="white" onClick={this.handleNav} to="/">Home</Link>
                     }
                   </li>
