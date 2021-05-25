@@ -43,18 +43,16 @@ class ChestTreatments extends React.Component {
 
     return (
       <div className="container">
-        <h3 className="text-center">Here are suggested treatments for the diagnosis of your symptoms that you maybe experiencing:</h3>
+        <h1 className="text-center">Suggested treatments:</h1>
         <div className="treatments-menu">
-          <ul className="treatments">
-            {
-              treatments.length
-                ? treatments.map((treatments, index) => <TreatmentsItem key={treatments.treatmentsId} treatments={treatments} indexValue={index} />)
-                : <li className="list-group-item">No treatments specified</li>
-            }
-          </ul>
+          {
+            treatments.length
+              ? treatments.map((treatments, index) => <TreatmentsItem key={treatments.treatmentsId} treatments={treatments} indexValue={index} />)
+              : <li className="list-group-item">No treatments specified</li>
+          }
         </div>
         <div className="contact-email">
-          <p className="p4">For further questions regarding your treatments, diagnosis, or for more information, please email us and a health professional will respond shortly:   medicalquestions@medself.com</p>
+          <p className="p4">For further questions regarding your treatments, diagnosis, or for more information,<br></br> please email us and a health professional will respond shortly:   medicalquestions@medself.com</p>
         </div>
         <div className="treatments-image">
           <img src="/images/chest.png" alt="Body Image" className="bodyPartsImage" />
@@ -63,7 +61,7 @@ class ChestTreatments extends React.Component {
           <p className="p3">*Please note that these treatments are suggested.  Consultation with doctor is strongly recommended.</p>
         </div>
         <div>
-          <a href="/" className="homeButton"><i class="fa fa-home"></i> Home</a>
+          <a href="/" className="homeButton"><i className="fa fa-home"></i> Home</a>
         </div>
       </div>
     );
