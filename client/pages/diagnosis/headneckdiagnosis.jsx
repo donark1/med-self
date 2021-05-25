@@ -58,7 +58,7 @@ class HeadNeckDiagnosis extends React.Component {
 
     return (
       <div className="container">
-        <h1 className="text-center">Here are your possible head/neck diagnosis(please select an option for suggested treatment):</h1>
+        <h1 className="text-center">Possible head/neck diagnosis<br></br>(please select for suggested treatment):</h1>
         <div className="ul-list-container">
           <form onSubmit={this.handleSubmit}>
             <div className="diagnosis-menu">
