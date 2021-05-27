@@ -35,18 +35,13 @@ class Login extends React.Component {
         </div>
         <form onSubmit={this.handleSubmit}>
           <div className="row">
-            <div className="col-3">
-              <img src="/images/body-image_blue.jpg" alt="Body Image" className="bodyImageLogin" />
-            </div>
-            <div className="col-4">
+            <div className="col-12">
               <h4 className="login-input">Email:</h4><input type="text" id="email" name="email" defaultValue="demouser@abc.com" onChange={this.handleChange} disabled />
-            </div>
-            <div className="col-4">
               <h4 className="login-input">Password:</h4><input type="password" id="password" name="password" defaultValue="demouser" onChange={this.handleChange} disabled />
             </div>
           </div>
           <div>
-            <button type="submit" className="login-submit">Submit</button>
+            <button type="submit" className="login-submit">Login</button>
           </div>
         </form>
       </>

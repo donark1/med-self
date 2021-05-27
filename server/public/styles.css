@@ -1,13 +1,7 @@
-html {
-  background-color: rgb(48, 170, 234);
-}
-
 body {
   background-color: white;
-  min-height: 60em;
-  height: 600px;
+  min-height: 20em;
   border-radius: 50%;
-  overflow-x: hidden;
 }
 
 h1,
@@ -32,7 +26,7 @@ h3 {
   background-color: rgb(48, 170, 234);
   z-index: 1;
   position: absolute;
-  width: 175px;
+  width: 160px;
   height: 140vh;
   top: 70px;
   left: 20px;
@@ -46,7 +40,8 @@ h3 {
 }
 
 .navbar-height {
-  height: 0;
+  width: auto;
+  height: 14vh;
 }
 
 .white {
@@ -125,11 +120,12 @@ p {
 
 .buttons {
   text-align: center;
-  padding-top: 7%;
+  padding-top: 5%;
 }
 
 .profile-button,
-.login {
+.login,
+.createbutton {
   background-color: rgb(48, 170, 234);
   color: white;
   border-radius: 50px;
@@ -169,25 +165,26 @@ p {
 }
 
 input {
-  width: 50%;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  padding: 0 1rem;
+  border-radius: 2rem;
+  margin: 0.25rem;
+  border: 1px rgb(231, 224, 224) solid;
+  width: 100%;
+  font-size: 1.2rem;
 }
 
 .createbutton {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 3%;
   background-color: rgb(48, 170, 234);
   color: white;
+  border-radius: 50px;
   border-color: white;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
   font-size: 20px;
+  padding: 15px;
   text-align: center;
+  border-style: none;
 }
 
 button:focus {
@@ -195,6 +192,9 @@ button:focus {
 }
 
 .logintitle {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   color: rgb(48, 170, 234);
 }
 
@@ -291,13 +291,12 @@ button:focus {
   margin-right: auto;
   background-color: rgb(48, 170, 234);
   color: white;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  border-radius: 50px;
   border-color: white;
   font-size: 20px;
+  padding: 15px;
   text-align: center;
-  padding-top: 5px;
+  border-style: none;
 }
 
 .login-submit:hover {
@@ -330,7 +329,7 @@ button:focus {
   text-decoration: none;
 }
 
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1300px) {
   .sidebar {
     background-color: rgb(48, 170, 234);
     z-index: 1;
