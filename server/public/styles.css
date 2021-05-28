@@ -1,3 +1,4 @@
+
 body {
   background-color: white;
   min-height: 20em;
@@ -16,7 +17,7 @@ h3 {
   position: absolute;
   width: 100px;
   left: -100px;
-  height: 140vh;
+  height: 100vh;
   top: 0;
   transform: scale(1);
   transition: all 0.5s ease;
@@ -27,10 +28,10 @@ h3 {
   z-index: 1;
   position: absolute;
   width: 160px;
-  height: 90vh;
+  height: 170vh;
   top: 70px;
   left: 20px;
-  padding-top: 9vh;
+  padding-top: 12vh;
   transition: all 0.5s ease;
   transform: scale(1.25);
 }
@@ -41,7 +42,7 @@ h3 {
 
 .navbar-height {
   width: auto;
-  height: 14vh;
+  height: 18vh;
 }
 
 .white {
