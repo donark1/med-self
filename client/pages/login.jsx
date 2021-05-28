@@ -33,17 +33,25 @@ class Login extends React.Component {
         <div>
           <h1 className="text-center mt-4 logintitle">Login</h1>
         </div>
-        <form onSubmit={this.handleSubmit}>
+        <div className="container">
           <div className="row">
-            <div className="col-12">
-              <h4 className="login-input">Email:</h4><input type="text" id="email" name="email" defaultValue="demouser@abc.com" onChange={this.handleChange} disabled />
-              <h4 className="login-input">Password:</h4><input type="password" id="password" name="password" defaultValue="demouser" onChange={this.handleChange} disabled />
+            <div className="col-md-10 mx-auto">
+              <form onSubmit={this.handleSubmit}>
+                <div className="form-group row">
+                  <div className="col-sm-6">
+                    <h4 className="login-input">Email:</h4><input type="text" id="email" name="email" defaultValue="demouser@abc.com" onChange={this.handleChange} disabled />
+                  </div>
+                  <div className="col-sm-6">
+                    <h4 className="login-input">Password:</h4><input type="password" id="password" name="password" defaultValue="demouser" onChange={this.handleChange} disabled />
+                  </div>
+                </div>
+                <div>
+                  <button type="submit" className="login-submit">Login</button>
+                </div>
+              </form>
             </div>
           </div>
-          <div>
-            <button type="submit" className="login-submit">Login</button>
-          </div>
-        </form>
+        </div>
       </>
     );
   }

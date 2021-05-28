@@ -85,7 +85,7 @@ insert into "symptoms"
   (1, 5, 'Alcohol avoidance, medications, therapy, support groups, rehab.'),
   (1, 6, 'Medicines (beta blocker, antiseicure drug), possible brain surgery.'),
   (1, 7, 'Andidotes for specific poisoning, medications for symptom controls.'),
-  (1, 8, 'Flush nasal passages with warm water, antihistamines/decongestants.'),
+  (1, 8, 'Flush nasal passages with warm water, antihistamines or decongestants.'),
   (1, 9, 'Antiparasitic medications.'),
   (1, 10, 'ACE inhibitors, diurectics, cholesterol lowering drugs.'),
   (2, 11, 'Pain medication, physical therapy, possible surgery.'),
