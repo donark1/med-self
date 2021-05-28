@@ -16,7 +16,7 @@ h3 {
   position: absolute;
   width: 100px;
   left: -100px;
-  height: 125vh;
+  height: 140vh;
   top: 0;
   transform: scale(1);
   transition: all 0.5s ease;
@@ -27,7 +27,7 @@ h3 {
   z-index: 1;
   position: absolute;
   width: 160px;
-  height: 140vh;
+  height: 90vh;
   top: 70px;
   left: 20px;
   padding-top: 9vh;
@@ -110,6 +110,7 @@ p {
   background-color: rgb(48, 170, 234);
   width: 60%;
   margin-top: 2%;
+  margin-bottom: 2%;
   border-radius: 25px;
   padding: 5px;
 }
@@ -126,6 +127,20 @@ p {
 .profile-button,
 .login,
 .createbutton {
+  background-color: rgb(48, 170, 234);
+  color: white;
+  border-radius: 50px;
+  border-color: white;
+  font-size: 20px;
+  padding: 15px;
+}
+
+.symptom-submit,
+.diagnosis-submit,
+.bodypart-submit {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   background-color: rgb(48, 170, 234);
   color: white;
   border-radius: 50px;
@@ -159,7 +174,7 @@ p {
   width: 30%;
 }
 
-.input {
+.profile-input {
   padding: 2px;
   color: rgb(48, 170, 234);
 }
@@ -217,21 +232,6 @@ button:focus {
   width: 10%;
 }
 
-.bodypart-submit {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: rgb(48, 170, 234);
-  color: white;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border-color: white;
-  font-size: 20px;
-  text-align: center;
-  padding-top: 5px;
-}
-
 .symptoms-menu,
 .diagnosis-menu,
 .treatments-menu {
@@ -254,22 +254,6 @@ button:focus {
   width: 10%;
 }
 
-.symptom-submit,
-.diagnosis-submit {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: rgb(48, 170, 234);
-  color: white;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border-color: white;
-  font-size: 20px;
-  text-align: center;
-  padding-top: 5px;
-}
-
 .treatments-menu {
   display: block;
   margin-left: auto;
@@ -280,8 +264,16 @@ button:focus {
   font-size: 25px;
 }
 
+.login-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
+  width: 50%;
+}
+
 .login-input {
-  padding-top: 5px;
+  padding-top: 10px;
   color: rgb(48, 170, 234);
 }
 
@@ -313,16 +305,12 @@ button:focus {
   margin-left: auto;
   margin-right: auto;
   background-color: rgb(48, 170, 234);
-  border: none;
   color: white;
-  width: 100px;
-  height: 100px;
+  border-radius: 50px;
+  border-color: white;
   font-size: 20px;
   padding: 15px;
-  margin-top: 2%;
-  cursor: pointer;
-  border-radius: 50%;
-  text-align: center;
+  width: 125px;
 }
 
 .homeButton:hover {
