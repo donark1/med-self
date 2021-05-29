@@ -14,7 +14,7 @@ h3 {
 .sidebar {
   background-color: rgb(48, 170, 234);
   z-index: 1;
-  position: absolute;
+  position: fixed;
   width: 100px;
   left: -100px;
   height: 100vh;
@@ -26,7 +26,7 @@ h3 {
 .sidebar-nav-on {
   background-color: rgb(48, 170, 234);
   z-index: 1;
-  position: absolute;
+  position: fixed;
   width: 160px;
   height: 170vh;
   top: 70px;
