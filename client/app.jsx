@@ -26,12 +26,18 @@ import LegsFeetTreatments from './pages/treatments/legsfeettreatments';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
+    let user = localStorage.getItem('user');
+    let isLoggedIn = false;
+    if (user) {
+      user = JSON.parse(user);
+      isLoggedIn = true;
+    }
     this.state = {
-      users: null,
+      users: user,
       signInRedirect: false,
       signOutRedirect: false,
       bodypart: null,
-      isLoggedIn: false
+      isLoggedIn: isLoggedIn
     };
     this.createProfile = this.createProfile.bind(this);
     this.login = this.login.bind(this);
@@ -52,10 +58,8 @@ export default class App extends React.Component {
         return res.json();
       })
       .then(newUser => {
-        const emailStringify = JSON.stringify(email.value);
-        const passwordStringify = JSON.stringify(password.value);
-        window.localStorage.setItem("email", emailStringify);
-        window.localStorage.setItem("password", passwordStringify);
+        const userStringify = JSON.stringify(newUser);
+        localStorage.setItem('user', userStringify);
         this.setState({
           users: newUser,
           isLoggedIn: true,
@@ -78,10 +82,8 @@ export default class App extends React.Component {
         return res.json();
       })
       .then(loginUser => {
-        const emailStringify = JSON.stringify(email.value);
-        const passwordStringify = JSON.stringify(password.value);
-        window.localStorage.setItem("email", emailStringify);
-        window.localStorage.setItem("password", passwordStringify);
+        const userStringify = JSON.stringify(loginUser);
+        localStorage.setItem('user', userStringify);
         this.setState({
           users: loginUser,
           isLoggedIn: true,
@@ -95,7 +97,8 @@ export default class App extends React.Component {
     this.setState({
       users: null,
       isLoggedIn: false,
-      signInRedirect: false });
+      signInRedirect: false
+    });
     window.localStorage.clear();
   }
 
